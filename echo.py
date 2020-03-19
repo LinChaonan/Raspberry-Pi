@@ -28,7 +28,7 @@ GPIO.setup(3,GPIO.IN)
 time.sleep(2)
 try:
         while True:
-                print 'Distance: %0.2f m' %checkdist()
+                print ('Distance: %0.2f m' %checkdist())
                 time.sleep(0.5)
 except KeyboardInterrupt:
         GPIO.cleanup()

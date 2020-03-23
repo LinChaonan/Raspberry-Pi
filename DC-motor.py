@@ -1,9 +1,10 @@
+# pylint: disable=no-member
 import RPi.GPIO as GPIO         # 引入GPIO模块
 import time                     # 引入time模块
 
-ENA = 13
-IN1 = 19
-IN2 = 26
+ENA = 17
+IN1 = 27
+IN2 = 22
 
 try: # 初始化
     GPIO.setmode(GPIO.BCM)          # 使用BCM编号方式
@@ -16,7 +17,7 @@ try: # 初始化
         GPIO.output(IN1, False)     # 将IN1设置为0
         GPIO.output(IN2, True)      # 将IN2设置为1
         GPIO.output(ENA, True)      # 将ENA设置为1，启动A通道电机
-        time.sleep(5)            	# 等待电机转动5秒
+        time.sleep(1)            	# 等待电机转动5秒
 
         # 电机停止2秒
         GPIO.output(ENA, False)     # 将ENA设置为0
@@ -26,12 +27,11 @@ try: # 初始化
         GPIO.output(IN1, True)      # 将IN1设置为1
         GPIO.output(IN2, False)     # 将IN2设置为0
         GPIO.output(ENA, True)      # 将ENA设置为1，启动A通道电机
-        time.sleep(5)            	# 等待电机转动5秒
+        time.sleep(1)            	# 等待电机转动5秒
 
         # 电机停止2秒
         GPIO.output(ENA, False)     # 将ENA设置为0
         time.sleep(2)            	# 等待电机停止2秒
-
+        break
 finally:
-    pwm.stop()                      # 停止PWM
     GPIO.cleanup()                  # 清理释放GPIO资源，将GPIO复位

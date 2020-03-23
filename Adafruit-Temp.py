@@ -5,11 +5,11 @@ import Adafruit_DHT
 sensor=Adafruit_DHT.DHT11
 
 # Set GPIO sensor is connected to
-gpio=4
+pin=7
 
 # Use read_retry method. This will retry up to 15 times to
 # get a sensor reading (waiting 2 seconds between each retry).
-humidity, temperature = Adafruit_DHT.read_retry(sensor, gpio)
+humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
 # Reading the DHT11 is very sensitive to timings and occasionally
 # the Pi might fail to get a valid reading. So check if readings are valid.

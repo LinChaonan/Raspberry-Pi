@@ -1,5 +1,4 @@
-# 在这里写上你的代码 :-)
-
+# pylint: disable=no-member
 import RPi.GPIO as GPIO
 import time
 

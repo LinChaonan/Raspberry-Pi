@@ -17,7 +17,7 @@ try: # 初始化
         GPIO.output(IN1, False)     # 将IN1设置为0
         GPIO.output(IN2, True)      # 将IN2设置为1
         GPIO.output(ENA, True)      # 将ENA设置为1，启动A通道电机
-        time.sleep(1)            	# 等待电机转动5秒
+        time.sleep(4)            	# 等待电机转动5秒
 
         # 电机停止2秒
         GPIO.output(ENA, False)     # 将ENA设置为0
@@ -27,11 +27,11 @@ try: # 初始化
         GPIO.output(IN1, True)      # 将IN1设置为1
         GPIO.output(IN2, False)     # 将IN2设置为0
         GPIO.output(ENA, True)      # 将ENA设置为1，启动A通道电机
-        time.sleep(1)            	# 等待电机转动5秒
+        time.sleep(4)            	# 等待电机转动5秒
 
         # 电机停止2秒
         GPIO.output(ENA, False)     # 将ENA设置为0
-        time.sleep(2)            	# 等待电机停止2秒
+        time.sleep(5)            	# 等待电机停止2秒
         break
 finally:
     GPIO.cleanup()                  # 清理释放GPIO资源，将GPIO复位

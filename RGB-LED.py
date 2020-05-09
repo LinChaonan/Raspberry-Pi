@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # encoding: utf-8
+#RGB-LED
  
 import RPi.GPIO
 import time
@@ -22,7 +23,7 @@ pwmB.start(0)
  
 try:
  
-    t = 1
+    t = 8
     while True:
         # 红色灯全亮，蓝灯，绿灯全暗（红色）
         pwmR.ChangeDutyCycle(100)

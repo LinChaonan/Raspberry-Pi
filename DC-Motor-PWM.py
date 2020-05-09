@@ -14,13 +14,13 @@ if __name__ == '__main__':
         GPIO.setup(IN1, GPIO.OUT)           # 将IN1对应的GPIO引脚设置为输出模式
         GPIO.setup(IN2, GPIO.OUT)           # 将IN2对应的GPIO引脚设置为输出模式
 
-        time.sleep(10)
+        time.sleep(1)
 
         freq = 500
         speed = 0
         pwm = GPIO.PWM(ENA, freq)           # 设置向ENA输入PWM脉冲信号，频率为freq并创建PWM对象
         pwm.start(speed)                    # 以speed的初始占空比开始向ENA输入PWM脉冲信号
-       
+
         while True:
             # 将电机设置为正向转动
             GPIO.output(IN1, False)         # 将IN1设置为0
@@ -36,11 +36,11 @@ if __name__ == '__main__':
             GPIO.output(IN2, False)         # 将IN2设置为0
 
             # 通过改变PWM占空比，让电机转速不断加快
-            for speed in range(0, 100, 5):
+            for speed in range(0, 20, 5):
                 pwm.ChangeDutyCycle(speed)  # 改变PWM占空比
                 time.sleep(1)
             GPIO.output(IN1, False)          # 将IN1设置为1
-            GPIO.output(IN2, False) 
+            GPIO.output(IN2, False)
             break
     finally:
         pwm.stop()                          # 停止PWM

@@ -1,4 +1,3 @@
-# 在这里写上你的代码 :-)
 import RPi.GPIO as GPIO                 # 引入GPIO模块
 
 if __name__ == '__main__':
@@ -22,4 +21,5 @@ if __name__ == '__main__':
             pwm.ChangeDutyCycle(duty)         # 改变PWM占空比
     finally:
         pwm.stop()                      # 停止PWM
-        GPIO.cleanup()                  # 清理释放GPIO资源，将GPIO复位
+        GPIO.cleanup()                  # 清理释放GPIO资源，将GPIO复位0
+        

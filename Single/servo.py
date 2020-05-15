@@ -21,7 +21,7 @@ if __name__ == '__main__':
 
             duty = (1/18) * direction + 2.5   # 将角度转换为占空比
             pwm.ChangeDutyCycle(duty)         # 改变PWM占空比
-            time.sleep(10)                    #等待控制周期结束
+            time.sleep(4)                    #等待控制周期结束
             pwm.ChangeDutyCycle(0)            #清空占空比，这句是防抖关键句，如果没有这句，舵机会狂抖不止
     finally:
         pwm.stop()                      # 停止PWM

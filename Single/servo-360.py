@@ -1,6 +1,5 @@
 import RPi.GPIO as GPIO                 # 引入GPIO模块
-import time
-# 110关闭，180打开
+
 if __name__ == '__main__':
     ServoPin = 26
     PWMFreq = 50                        # PWM信号频率
@@ -13,7 +12,6 @@ if __name__ == '__main__':
     try:
         while True:
             # 等待输入一个0到180的角度
-            pwm.ChangeDutyCycle(0)            #清空占空比，这句是防抖关键句，如果没有这句，舵机会狂抖不止
             direction = float(input("Pleas input the direction: "))
             if direction < 0 or direction > 180:
                 print("Please input a direction between 0 an 180.")
@@ -21,9 +19,7 @@ if __name__ == '__main__':
 
             duty = (1/18) * direction + 2.5   # 将角度转换为占空比
             pwm.ChangeDutyCycle(duty)         # 改变PWM占空比
-            time.sleep(4)                    #等待控制周期结束
-            pwm.ChangeDutyCycle(0)            #清空占空比，这句是防抖关键句，如果没有这句，舵机会狂抖不止
     finally:
         pwm.stop()                      # 停止PWM
-        GPIO.cleanup()                  # 清理释放GPIO资源，将GPIO复位0
+        GPIO.cleanup()                  # 清理释放GPIO资源，将GPIO复位
         

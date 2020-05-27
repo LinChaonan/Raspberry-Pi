@@ -1,5 +1,7 @@
 import RPi.GPIO as GPIO                 # 引入GPIO模块
 
+# 0-70 顺时针减速 80 停止 90-180 逆时针加速
+
 if __name__ == '__main__':
     ServoPin = 26
     PWMFreq = 50                        # PWM信号频率

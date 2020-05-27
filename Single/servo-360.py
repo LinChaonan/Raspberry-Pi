@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO                 # 引入GPIO模块
+import time
 
 # 0-70 顺时针减速 80 停止 90-180 逆时针加速
 

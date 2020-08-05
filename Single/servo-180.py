@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO                 # 引入GPIO模块
 import time
 # 110关闭，180打开
 # 推杆，0-30
+# 下方开盖，80-0
 if __name__ == '__main__':
     ServoPin = 26
     PWMFreq = 50                        # PWM信号频率

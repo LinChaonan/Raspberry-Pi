@@ -4,7 +4,7 @@
 import RPi.GPIO
 import time
  
-R,G,B=18,15,14
+R,G,B=17,27,22
  
 RPi.GPIO.setmode(RPi.GPIO.BCM)
  
@@ -25,6 +25,7 @@ try:
     t = 10
     t =8
     while True:
+        '''
         # 红色灯全亮，蓝灯，绿灯全暗（红色）
         pwmR.ChangeDutyCycle(100)
         pwmG.ChangeDutyCycle(0)
@@ -60,11 +61,11 @@ try:
         pwmG.ChangeDutyCycle(100)
         pwmB.ChangeDutyCycle(100)
         time.sleep(t)
-         
+'''        
         # 红灯，绿灯，蓝灯全亮（白色）
         pwmR.ChangeDutyCycle(100)
         pwmG.ChangeDutyCycle(100)
-        pwmB.ChangeDutyCycle(100)
+        pwmB.ChangeDutyCycle(60)
         time.sleep(t)
  
 except KeyboardInterrupt:

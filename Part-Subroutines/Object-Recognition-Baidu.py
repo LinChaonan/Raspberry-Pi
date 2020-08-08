@@ -4,9 +4,17 @@
 import sys
 import json
 import base64
-import picamera
-import time
-import RPi.GPIO as GPIO                 # 引入GPIO模块
+
+from picamera import PiCamera
+from time import sleep
+import RPi.GPIO as GPIO 
+
+camera = PiCamera()
+
+camera.start_preview()
+sleep(5)
+camera.capture('/home/pi/Desktop/Raspberry-Pi/Functional-Test/image.jpg' )
+camera.stop_preview()         
 
 
 # 保证兼容python2以及python3
@@ -133,6 +141,11 @@ def print_result(filename, url):
         break
 
 if __name__ == '__main__':
+    from picamera import PiCamera
+    from time import sleep
+    import RPi.GPIO as GPIO 
+    import time
+      
     GPIO.setmode(GPIO.BCM)                  # 使用BCM编号方式
     GPIO.setup(17, GPIO.OUT)                # 将GPIO19设置为输出模式
     GPIO.setup(27, GPIO.OUT)      
@@ -141,12 +154,6 @@ if __name__ == '__main__':
     GPIO.output(17, True)       # 将GPIO19设置为高电平，点亮LED
     GPIO.output(27, True)
     GPIO.output(22, True)
-
-
-    camera.start_preview()
-    sleep(5)
-    camera.capture('/home/pi/Desktop/Raspberry-Pi/Part-Subroutines/1.jpg' )
-    camera.stop_preview()
 
     # 获取access token
     token = fetch_token()

@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO                 # 引入GPIO模块
 import time
-# 110关闭，180打开
+# 感应开盖，150-90
 # 推杆，0-35
 # 下方开盖，前80-0
 # 下方开盖，后0-80
